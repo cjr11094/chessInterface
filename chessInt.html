@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+
+
+	<meta charset="UTF-8"/>
+	
+	<title>
+		Practing!
+	</title>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="chess.js"></script>
+	
+	<script language="javascript">
+		$(document).ready(setup);
+	</script>
+	
+	heyhey  
+
+	
+</head>
+
+
+<body>
+
+<h3> UNFORTUNATELY, THIS IS A SHARED SERVER, SO I CANNOT RUN THE JAVA CODE FOR MY AI ENGINE AT THE MOMENT. HOWEVER, YOU CAN STILL SEE THE CODE FOR MY CHESS ENGINE AT <code>www.github.com/cjr11094/chessEngine</code> </h3>
+<p> Rules: 1) You are the solid pink pieces 2) You go first 3) No castling or en passants </p>
+<p>Conner Reilly's Chess Engine: </p>
+
+<table id="chess_board" cellpadding="0" cellspacing="0">
+	
+    <tr>
+        <td id="00" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="rook black">&#9820;</a></td>
+        <td id="01" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="night black">&#9822;</a></td>
+
+        <td id="02" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="bishop black">&#9821;</a></td>
+        <td id="03" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="queen black">&#9818;</a></td>
+        <td id="04" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="king black">&#9819;</a></td>
+        <td id="05" ondragenter='setDropId(id);' ondragstart='setStartId(id);'class="chessboardspot"><a href="#" class="chesspiece" id="bishop black2">&#9821;</a></td>
+        <td id="06" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="night black2">&#9822;</a></td>
+        <td id="07" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="rook black2">&#9820;</a></td>
+    </tr>
+    <tr>
+        <td id="10" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="pawn black0">&#9823;</a></td>
+        <td id="11" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="pawn black1">&#9823;</a></td>
+        <td id="12" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="pawn black2">&#9823;</a></td>
+        <td id="13" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="pawn black3">&#9823;</a></td>
+        <td id="14" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="pawn black4">&#9823;</a></td>
+        <td id="15" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="pawn black5">&#9823;</a></td>
+        <td id="16" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="pawn black6">&#9823;</a></td>
+        <td id="17" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="pawn black7">&#9823;</a></td>
+    </tr>
+    <tr>
+        <td id="20" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="21" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="22" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="23" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="24" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="25" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="26" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="27" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+    </tr>
+    <tr>
+        <td id="30" ondragenter="setDropId(id);" ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="31" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="32" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="33" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="34" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="35" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="36" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="37" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+    </tr>
+    <tr>
+        <td id="40" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="41" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="42" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="43" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="44" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="45" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="46" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="47" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+    </tr>
+    <tr>
+        <td id="50" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="51" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="52" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="53" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="54" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="55" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="56" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+        <td id="57" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"></td>
+    </tr>
+    <tr>
+        <td id="60" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="pawn white0">&#9817;</a></td>
+        <td id="61" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="pawn white1">&#9817;</a></td>
+        <td id="62" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="pawn white2">&#9817;</a></td>
+        <td id="63" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="pawn white3">&#9817;</a></td>
+        <td id="64" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="pawn white4">&#9817;</a></td>
+        <td id="65" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="pawn white5">&#9817;</a></td>
+        <td id="66" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="pawn white6">&#9817;</a></td>
+        <td id="67" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="pawn white7">&#9817;</a></td>
+    </tr>
+    <tr>
+        <td id="70" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="rook white">&#9814;</a></td>
+        <td id="71" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="night white">&#9816;</a></td>
+        <td id="72" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="bishop white">&#9815;</a></td>
+        <td id="73" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="king white">&#9813;</a></td>
+        <td id="74" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="queen white">&#9812;</a></td>
+        <td id="75" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="bishop white1">&#9815;</a></td>
+        <td id="76" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="night white1">&#9816;</a></td>
+        <td id="77" ondragenter='setDropId(id);' ondragstart='setStartId(id);' class="chessboardspot"><a href="#" class="chesspiece" id="rook white1">&#9814;</a></td>
+    </tr>
+
+
+</table>
+
+
+<style type=text/css>    
+
+a {
+    color:#fae;
+    display:block;
+    font-size:50px;
+    height:70px;
+    width:70px;
+    position:relative;
+}
+#chess_board { border:5px solid #333; }
+
+#chess_board td {
+    background:#ead;
+    background:-webkit-gradient(linear,0 0, 0 100%, from(#100), to(#000)); //fix this
+    -webkit-box-shadow:inset 0 0 0 1px #fff;
+    height:70px;
+    text-align:center;
+    vertical-align:middle;
+    width:70px;
+}
+#chess_board tr:nth-child(odd) td:nth-child(even),
+#chess_board tr:nth-child(even) td:nth-child(odd) {
+    background:-webkit-gradient(linear,0 0, 0 100%, from(#eee), to(#fff));
+
+
+}
+
+</style>
+
+
+</body>
+
+</html>
